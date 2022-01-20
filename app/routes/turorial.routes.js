@@ -1,10 +1,12 @@
 module.exports = (app) => {
    const tutorials = require("../controllers/tutorial.controller.js");
+   const auth = require("../middleware/auth");
+   const admin = require("../middleware/admin");
 
    var router = require("express").Router();
 
    // Create a new Tutorial
-   router.post("/", tutorials.create);
+   router.post("/",[auth,admin], tutorials.create);
 
    // Retrieve all Tutorials
    router.get("/", tutorials.findAll);
