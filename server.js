@@ -14,10 +14,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // simple route
+
 app.get("/", (req, res) => {
    res.json({ message: "Welcome to Khaled application." });
 });
-
+app.get("/omar", (req, res) => {
+   res.json({ message: "Welcome to omar application." });
+});
 const db = require("./app/models");
 
 db.mongoose
